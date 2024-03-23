@@ -6,6 +6,8 @@ pip install -r requirements.txt
 
 python manage.py migrate
 python manage.py createsuperuser --username admin --email admin@example.com
+python manage.py makemigrations
+python manage.py migrate
 
 Для того, чтобы совешить транзакцию, необходимо ввести следующие данные:
 username_1 - пользователь, у которого берут деньги
@@ -15,4 +17,4 @@ wallet_name_2 - кошелек пользователя, которому пер
 transfer_money - количество денег, которые должны перевести
 
 Например:
-curl  -H 'Content-Type: application/json' --data '{"username_1":"Bob","username_2":"Tom", "wallet_name_1": "Bobs_wallet", "wallet_name_2": "Toms_wallet", "transfer_money": "2.0"}' http://127.0.0.1:8000/wallet/transfer_money/
+curl  -H 'Content-Type: application/json' --data '{"username_1":"Bob","username_2":"Tom", "wallet_name_1": "Bobs_wallet", "wallet_name_2": "Toms_wallet", "transfer_money": 2.0}' http://127.0.0.1:8000/wallet/transfer_money/
